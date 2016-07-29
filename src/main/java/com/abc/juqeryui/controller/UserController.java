@@ -1,6 +1,7 @@
 package com.abc.juqeryui.controller;
 
 import com.abc.juqeryui.entity.User;
+import com.abc.juqeryui.mapper.Page;
 import com.abc.juqeryui.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,15 @@ public class UserController {
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
-        return "hello:"+new Date().getTime();
+        return "helloc:"+new Date().getTime();
     }
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     public List<User> getUsers(){
-        List<User> userList=userMapper.findAll();
+        Page<User> page = new Page<User>();
+        page.setPageNo(1);
+        page.setPageSize(5 );
+        List<User> userList=userMapper.findAll(page);
         return userList;
     }
 }

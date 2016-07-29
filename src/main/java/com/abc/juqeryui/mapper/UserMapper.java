@@ -16,5 +16,9 @@ public interface UserMapper {
     @Select("SELECT * FROM t_user order by id desc")
     @Results(value = {
             @Result(property = "createDate", column = "create_date", javaType = Date.class, jdbcType = JdbcType.TIMESTAMP) })
-    List<User> findAll();
+    List<User> findAll(Page page);
+
+    @Insert("INSERT INTO t_user(name,phone,company, address,create_date)" +
+            "VALUES(#{user.name},#{user.phone},#{user.company}, #{user.address}, #{user.createDate})")
+    void save(@Param("user") User user);
 }

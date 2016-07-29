@@ -1,3 +1,4 @@
+package com.abc.juqeryui;
 import org.slf4j.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

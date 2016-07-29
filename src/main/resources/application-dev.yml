@@ -13,7 +13,7 @@ logging:
         com.ibatis: DEBUG
         org.hibernate: WARN
         org.springframework: WARN
-    file: ipg.log
+    file: jquery.log
 
 # Spring settings
 spring:
